@@ -32,6 +32,14 @@
             </div>
             <h2 class="swiper-banner">Welcome to The hotel</h2>
         </div>
+        <div class="container">
+            <div class="quote">
+                <p>A series of open-house hotels inspired by the diversity and originality of the streets and scenes that surround us.</p>
+                <div class="image-des">
+                    <img src="{{ asset('imgs/icon-safari.png') }}" alt="">
+                </div>
+            </div>
+        </div>
 
 
 
