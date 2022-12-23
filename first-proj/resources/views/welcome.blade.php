@@ -7,21 +7,8 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     </head>
+    @include('layouts/header')
     <body class="antialiased">
-        <header>
-            <nav>
-                <a href="#" class="nav-logo">
-                    The hotel
-                </a>
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Our Rooms</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">About Us</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
-                </ul>
-                <a href="#" class="book-btn">BOOK</a>
-            </nav>
-        </header>
         <div class="wrapper">
             <div class="swiper headerSwiper">
                 <div class="swiper-wrapper">
@@ -30,11 +17,21 @@
                     <div class="swiper-slide"><img src="https://images.unsplash.com/flagged/photo-1555445777-a34b0190e76d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1700&q=80" alt=""></div>
                 </div>
             </div>
-            <h2 class="swiper-banner">Welcome to The hotel</h2>
+            <h2 class="swiper-banner">{{$data['title']}}</h2>
         </div>
         <div class="container">
+            <ul>
+                @foreach($recentPosts as $post)
+                    <li>
+                        <h3>{{$post->title}}</h3>
+                        <p>{{$post->content}}</p>
+                    </li>
+                @endforeach
+            </ul>
+
             <div class="quote">
-                <p>A series of open-house hotels inspired by the diversity and originality of the streets and scenes that surround us.</p>
+                <p>{{$data['content']}}</p>
+
                 <div class="image-des">
                     <img src="{{ asset('imgs/icon-safari.png') }}" alt="">
                 </div>
