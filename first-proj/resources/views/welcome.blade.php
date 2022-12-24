@@ -20,15 +20,6 @@
             <h2 class="swiper-banner">{{$data['title']}}</h2>
         </div>
         <div class="container">
-            <ul>
-                @foreach($recentPosts as $post)
-                    <li>
-                        <h3>{{$post->title}}</h3>
-                        <p>{{$post->content}}</p>
-                    </li>
-                @endforeach
-            </ul>
-
             <div class="quote">
                 <p>{{$data['content']}}</p>
 
@@ -38,18 +29,56 @@
             </div>
         </div>
 
+        <div class="container-xl">
+            <section class="loation-list">
+                <h2 class="section-title">Our Location</h2>
+                <div class="swiper location">
+                    <div class="swiper-wrapper">
+                        @foreach($list as $location)
+                            <div class="swiper-slide">
+                                <div class="card-location">
+                                    <div class="card-img">
+                                        <img src="https://images.unsplash.com/photo-1568229988520-4bc288da81f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80" alt="" />
+                                    </div>
+                                    <div class="card-content">
+                                        <a href="#" class="btn-view">View hotel</a>
+                                        <div class="location-name">{{$location->name}}</div>
+                                        <div class="location-des">{{$location->description}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+
 
 
 
         <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
         <script>
-            var swiper = new Swiper(".headerSwiper", {
+            var swiperHeaderBanner = new Swiper(".headerSwiper", {
                 loop: true,
                 autoplay: {
                     delay: 3000,
-                    disableOnInteration: true
+                    disableOnInteraction: true
                 },
-                speed: 800
+                speed: 1200
+            });
+
+            var swiperLocation = new Swiper(".location", {
+                slidesPerView: 5,
+                spaceBetween: 40,
+                slidesPerGroup: 1,
+                speed: 1500,
+                loop: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: true
+                }
             });
         </script>
     </body>

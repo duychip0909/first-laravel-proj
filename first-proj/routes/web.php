@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RouteController;
+use App\Http\Controllers\LocationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +15,17 @@ use App\Http\Controllers\RouteController;
 |
 */
 
-Route::get('/', [RouteController::class, 'returnHome']);
+Route::get('/', [LocationController::class, 'returnHome']);
 
 Route::get('about', [RouteController::class, 'returnAbout']);
 
 Route::get('rooms', [RouteController::class, 'returnOurroom']);
 
 Route::get('contact', [RouteController::class, 'returnContact']);
+
+Route::get('admin', [RouteController::class, 'admin']);
+
+Route::post('store', [LocationController::class, 'store']);
+
+Route::get('locationlist', [LocationController::class, 'show']);
+
