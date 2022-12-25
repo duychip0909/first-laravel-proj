@@ -10,17 +10,17 @@
     @include('layouts/header')
     <body class="antialiased">
         <div class="main-block">
-            <form action="/store" method="post">
+            <form action="/update/{{$location->id}}" method="post">
+                @method('put')
                 @csrf
-                @method('post')
                 <div class="title">
                     <h2>Information Upload</h2>
                 </div>
                 <div class="info">
-                    <input class="fname" type="text" name="locationName" placeholder="Location name here...">
-                    <input type="text" name="locationContent" placeholder="Content here...">
-                    <input type="text" name="image" placeholder="Image here...">
-                    <input type="text" name="status" placeholder="Status here...">
+                    <input class="fname" type="text" name="locationName" placeholder="Location name here..." value="{{$location->name}}">
+                    <input type="text" name="locationContent" placeholder="Content here..." value="{{$location->description}}">
+                    <input type="text" name="image" placeholder="Image here..." value="{{$location->image}}">
+                    <input type="text" name="status" placeholder="Status here..." value="{{$location->status}}">
                 </div>
                 <button type="submit">Submit</button>
             </form>

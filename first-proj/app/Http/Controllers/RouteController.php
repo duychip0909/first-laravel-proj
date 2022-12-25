@@ -22,6 +22,10 @@ class RouteController extends Controller
         return view('admin');
     }
 
+    function edit() {
+        return view('admin-edit');
+    }
+
 //    function locationlist() {
 //        return view('location-list');
 //    }

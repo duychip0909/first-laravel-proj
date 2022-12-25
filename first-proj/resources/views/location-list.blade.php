@@ -9,26 +9,45 @@
     @include('layouts/header')
     <body class="antialiased">
         <div id="locationList">
-            <div class="container">
-                <table border="1">
-                    <thead>
-                    <tr>
-                        <th>name</th>
-                        <th>des</th>
-                        <th>Status</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($list as $location)
-                        <tr>
-                            <td>{{$location-> name}}</td>
-                            <td>{{$location-> description}}</td>
-                            <td>{{$location->status}}</td>
-                        </tr>
-                    @endforeach
-                    </tbody>
-                </table>
-            </div>
+            <section>
+                <div class="container">
+                    <div class="box-header">
+                        <h2 class="box-title">Manage Location</h2>
+                        <a href="#" class="btn btn-add">Add New Location</a>
+                    </div>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($list as $location)
+                                <tr>
+                                    <td>{{$location->id}}</td>
+                                    <td>{{$location-> name}}</td>
+                                    <td>{{$location-> description}}</td>
+                                    <td>{{$location->status}}</td>
+                                    <td>
+                                        <form action="/delete/{{$location->id}}" method="post">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit">Delete</button>
+                                        </form>
+                                        <a href="/edit/{{$location->id}}">Edit</a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
         </div>
     </body>
 </html>

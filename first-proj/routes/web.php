@@ -27,5 +27,11 @@ Route::get('admin', [RouteController::class, 'admin']);
 
 Route::post('store', [LocationController::class, 'store']);
 
-Route::get('locationlist', [LocationController::class, 'show']);
+Route::get('edit/{id}', [LocationController::class, 'edit']);
+
+Route::put('update/{id}', [LocationController::class, 'update']);
+
+Route::delete('delete/{id}', [LocationController::class, 'destroy']);
+
+Route::get('locationlist', [LocationController::class, 'index']);
 

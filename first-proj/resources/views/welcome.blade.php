@@ -38,7 +38,7 @@
                             <div class="swiper-slide">
                                 <div class="card-location">
                                     <div class="card-img">
-                                        <img src="https://images.unsplash.com/photo-1568229988520-4bc288da81f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80" alt="" />
+                                        <img src="{{$location->image}}" alt="" />
                                     </div>
                                     <div class="card-content">
                                         <a href="#" class="btn-view">View hotel</a>
@@ -52,12 +52,6 @@
                 </div>
             </section>
         </div>
-
-
-
-
-
-
         <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
         <script>
             var swiperHeaderBanner = new Swiper(".headerSwiper", {
