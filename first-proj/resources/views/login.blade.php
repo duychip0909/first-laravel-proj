@@ -7,7 +7,6 @@
         <link rel="stylesheet" href="{{ asset('css/admin_style.css') }}">
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     </head>
-    @include('layouts/header')
     <body class="antialiased">
         <div class="main-block">
             <form action="/store" method="post">
