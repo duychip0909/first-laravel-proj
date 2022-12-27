@@ -15,11 +15,15 @@ class LocationController extends Controller
         $location->image = $request->input('image');
         $location->status = $request->input('status');
         $location->save();
-        return redirect('locationlist');
+        return redirect('locationadd');
     }
 
     public function index() {
 //        $locations = DB::table('locations')->get();
+        return view('location-add', ['list' => Location::all()]);
+    }
+
+    public function list() {
         return view('location-list', ['list' => Location::all()]);
     }
 
@@ -31,7 +35,7 @@ class LocationController extends Controller
     public function destroy($id) {
         $location = Location::find($id);
         $location->delete();
-        return redirect('locationlist');
+        return redirect('locationadd');
     }
 
     public function update(Request $request, $id) {

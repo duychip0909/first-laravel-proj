@@ -53,29 +53,76 @@
                     </div>
                 </section>
             </div>
+            <section class="new-place d-grid">
+                <div class="left-side d-flex align-items-start justify-content-center flex-column">
+                    <h2 class="header-title m-0">New places, new spaces</h2>
+                    <p class="my-4">The reputable one-Michelin-star restaurant Sra Bua by Kiin Kiin at The Hotel Bangkok welcomes the warm summer</p>
+                    <a href="#" class="learnmore-btn">Learn more</a>
+                </div>
+                <div class="right-side">
+                    <div class="image-frame">
+                        <img src="https://images.unsplash.com/photo-1536086845112-89de23aa4772?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="">
+                    </div>
+                </div>
+            </section>
+            <section class="takealook-section">
+                <h2 class="header-title text-center mb-5">Take a look around</h2>
+                <div class="swiper takealook">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img
+                                src="https://images.unsplash.com/photo-1555921015-5532091f6026?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                            />
+                        </div>
+                        <div class="swiper-slide">
+                            <img
+                                src="https://images.unsplash.com/photo-1543355890-20bc0a26fda1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1473&q=80"
+                            />
+                        </div>
+                        <div class="swiper-slide">
+                            <img
+                                src="https://images.unsplash.com/photo-1581350845039-3318c9bd4cac?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1439&q=80"
+                            />
+                        </div>
+                        <div class="swiper-slide">
+                            <img
+                                src="https://images.unsplash.com/photo-1581350845039-3318c9bd4cac?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1439&q=80"
+                            />
+                        </div>
+                        <div class="swiper-slide">
+                            <img
+                                src="https://images.unsplash.com/photo-1594461140689-e82a4e3279a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="new-place d-grid">
+                <div class="left-side d-flex align-items-start justify-content-center flex-column">
+                    <h2 class="header-title m-0">Conscious Hotel The Tire Station</h2>
+                    <p class="my-4">The reputable one-Michelin-star restaurant Sra Bua by Kiin Kiin at The Hotel Bangkok welcomes the warm summer</p>
+                    <a href="#" class="learnmore-btn">get directions</a>
+                </div>
+                <div class="right-side">
+                    <div class="image-frame split">
+                        <img src="https://images.unsplash.com/photo-1600869080148-338f85fb17f8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=669&q=80" alt="">
+                        <img src="https://images.unsplash.com/photo-1588776873786-a51f317c3dbf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80" alt="">
+                    </div>
+                </div>
+            </section>
+            <section class="text-center container mb-5">
+                <div class="receivemail-form">
+                    <img src="{{asset('imgs/passport-icon.png')}}" alt="" class="ticket">
+                    <h2 class="header-title">Get The Good Stuff</h2>
+                    <p>Sign up to our newsletter to be the first to hear about great offers, new openings and events.</p>
+                    <form action="post">
+                        <div class="mail-input mt-5 py-2">
+                            <input type="text" placeholder="Your email address" class="d-block test">
+                        </div>
+                        <a href="#" class="learnmore-btn reverse-btn mt-4">sign up</a>
+                    </form>
+                </div>
+            </section>
         @endsection
-        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-        <script>
-            var swiperHeaderBanner = new Swiper(".headerSwiper", {
-                loop: true,
-                autoplay: {
-                    delay: 3000,
-                    disableOnInteraction: true
-                },
-                speed: 1200
-            });
-
-            var swiperLocation = new Swiper(".location", {
-                slidesPerView: 5,
-                spaceBetween: 40,
-                slidesPerGroup: 1,
-                speed: 1500,
-                loop: true,
-                autoplay: {
-                    delay: 3000,
-                    disableOnInteraction: true
-                }
-            });
-        </script>
     </body>
 </html>

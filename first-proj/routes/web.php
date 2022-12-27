@@ -25,6 +25,8 @@ Route::get('contact', [RouteController::class, 'returnContact']);
 
 Route::get('admin', [RouteController::class, 'admin']);
 
+Route::get('login', [RouteController::class, 'login']);
+
 Route::post('store', [LocationController::class, 'store']);
 
 Route::get('edit/{id}', [LocationController::class, 'edit']);
@@ -33,5 +35,9 @@ Route::put('update/{id}', [LocationController::class, 'update']);
 
 Route::delete('delete/{id}', [LocationController::class, 'destroy']);
 
-Route::get('locationlist', [LocationController::class, 'index']);
+Route::get('locationadd', [LocationController::class, 'index']);
+
+Route::get('locationlist', [LocationController::class, 'list']);
+
+Route::get('sidebar', [RouteController::class, 'sidebar']);
 

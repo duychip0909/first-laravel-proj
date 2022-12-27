@@ -19,11 +19,19 @@ class RouteController extends Controller
     }
 
     function admin() {
-        return view('login');
+        return view('register');
     }
 
     function edit() {
         return view('admin-edit');
+    }
+
+    function sidebar() {
+        return view('layouts.navbar');
+    }
+
+    function login() {
+        return view('login');
     }
 
 //    function locationlist() {
