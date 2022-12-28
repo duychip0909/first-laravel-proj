@@ -20,5 +20,9 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        Location::unguard();
+        $this->call(LocationsTableSeeder::class);
+        Location::reguard();
     }
 }

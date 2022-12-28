@@ -18,10 +18,6 @@ class RouteController extends Controller
         return view('contact');
     }
 
-    function admin() {
-        return view('register');
-    }
-
     function edit() {
         return view('admin-edit');
     }
@@ -30,12 +26,13 @@ class RouteController extends Controller
         return view('layouts.navbar');
     }
 
-    function login() {
+    function admin() {
         return view('login');
     }
 
-//    function locationlist() {
-//        return view('location-list');
-//    }
+    function register() {
+        return view('register');
+    }
+
 
 }

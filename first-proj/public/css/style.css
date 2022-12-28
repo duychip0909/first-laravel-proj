@@ -488,6 +488,7 @@ section {
     width: 100%;
     text-align: center;
     display: inline-block;
+    background: #fff;
     font-size: 15px;
     font-weight: 700;
     text-transform: uppercase;

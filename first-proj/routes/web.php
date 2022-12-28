@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RouteController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,7 @@ Route::get('rooms', [RouteController::class, 'returnOurroom']);
 
 Route::get('contact', [RouteController::class, 'returnContact']);
 
-Route::get('admin', [RouteController::class, 'admin']);
+//Route::get('admin', [RouteController::class, 'admin']);
 
 Route::get('login', [RouteController::class, 'login']);
 
@@ -41,3 +42,13 @@ Route::get('locationlist', [LocationController::class, 'list']);
 
 Route::get('sidebar', [RouteController::class, 'sidebar']);
 
+Route::prefix('dashboard')->group(function () {
+    Route::get('userlist', [AuthController::class, 'userlist'])->name('user-list');
+});
+
+Route::prefix('auth')->group(function () {
+    Route::get('admin', [RouteController::class, 'admin'])->name('login-form');
+    Route::get('register', [RouteController::class, 'register'])->name('register-form');
+    Route::post('signup', [AuthController::class, 'signup']);
+    Route::post('process', [AuthController::class, 'check']);
+});
