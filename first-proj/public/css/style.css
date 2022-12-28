@@ -638,17 +638,110 @@ footer .footer-title {
     grid-gap: 45px;
 }
 
+.our-neighbor .card {
+    box-shadow: none;
+}
+
+.our-neighbor .image-location {
+    margin-bottom: 30px;
+}
+
 .our-neighbor .content .first-section {
-    grid-column: 1 / span 3;
+    grid-column: 1 / span 4;
 }
 
 .our-neighbor .content .second-section {
-    grid-column: 5 / span 3;
+    grid-column: 5 / span 4;
 }
 
 .our-neighbor .content .third-section {
-    grid-column: 9 / span 3;
+    grid-column: 9 / span 4;
 }
+
+.our-neighbor .content img {
+    object-fit: cover;
+}
+
+.our-neighbor .content .first-section .card.our-neighbor1 .image-location {
+    max-width: 350px;
+}
+.our-neighbor .content .first-section .card.our-neighbor1 .image-location img {
+    aspect-ratio: 0.75 / 1;
+    width: 100%;
+}
+
+.our-neighbor .content .first-section .card.our-neighbor2 .image-location {
+    max-width: 350px;
+}
+.our-neighbor .content .first-section .card.our-neighbor2 .image-location img {
+    aspect-ratio: 1;
+    width: 100%;
+}
+
+.our-neighbor .content .second-section .card.our-neighbor3 .image-location {
+    max-width: 350px;
+}
+.our-neighbor .content .second-section .card.our-neighbor3 .image-location img {
+    aspect-ratio: 0.67 / 1;
+    width: 100%;
+}
+
+.our-neighbor .content .second-section .card.our-neighbor4 .image-location {
+    max-width: 350px;
+}
+.our-neighbor .content .second-section .card.our-neighbor4 .image-location img {
+    aspect-ratio: 3 / 2;
+    width: 100%;
+    height: 100%;
+}
+
+.our-neighbor .content .third-section .card.our-neighbor5 .image-location {
+    max-width: 350px;
+}
+.our-neighbor .content .third-section .card.our-neighbor5 .image-location img {
+    aspect-ratio: 1.51 / 1;
+    width: 100%;
+    height: 100%;
+}
+
+.our-neighbor .content .third-section .card.our-neighbor6 .image-location {
+    max-width: 350px;
+}
+.our-neighbor .content .third-section .card.our-neighbor6 .image-location img {
+    aspect-ratio: 0.67 / 1;
+    width: 100%;
+    height: 100%;
+}
+
+.detail-header-banner {
+    margin: 20px;
+}
+
+.detail-header-banner img {
+    aspect-ratio: 1903 / 720;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.detail-header-banner .overlay:after {
+    content: '';
+    position: absolute;
+    inset: 0 0 0 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(51, 51, 51, 0.29);
+}
+
+.detail-header-title {
+    position: absolute;
+    inset: 50% auto auto 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 80px;
+    font-weight: 700;
+}
+
 
 
 

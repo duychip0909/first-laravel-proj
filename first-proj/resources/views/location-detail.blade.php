@@ -10,7 +10,7 @@
     <body class="antialiased">
         @extends('layouts.app')
         @section('content')
-                <h2>Hello {{$location->name}}</h2>
+            @include('components.location-detail-banner')
             <div class="wrapper">
                 <div class="header-banner"><img src="" alt=""></div>
                 <h2 class="swiper-banner">{{$data['title']}}</h2>
@@ -82,29 +82,66 @@
                     <div class="first-section">
                         <div class="card our-neighbor1">
                             <div class="image-location">
-
+                                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7f6541c7-0f71-4281-a0d6-45f12f0c1cf6/dfhliag-7a10a8b0-9671-4e34-935a-9ba24afabec4.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzdmNjU0MWM3LTBmNzEtNDI4MS1hMGQ2LTQ1ZjEyZjBjMWNmNlwvZGZobGlhZy03YTEwYThiMC05NjcxLTRlMzQtOTM1YS05YmEyNGFmYWJlYzQuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.1XJ0XKHBzOz45kx0TUDvauV5fIJVPzxlusSUUwwFKXc" alt="" class="top-image">
                             </div>
                             <div class="content">
-
+                                <h2 class="title">The Grand Market</h2>
+                                <p class="description">The reputable one-Michelin-star restaurant Sra Bua by Kiin Kiin at The Hotel Bangkok welcomes the warm summer</p>
                             </div>
                         </div>
                         <div class="card our-neighbor2">
                             <div class="image-location">
-
+                                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/bc0e2e82-b032-47b7-a03e-9330876eedfa/dfl5ljr-b508f33b-56dc-41be-9af9-6d562de97e0e.png/v1/fill/w_1280,h_1743,q_80,strp/superman_bruce_campbell_color_by_garnabiuth_dfl5ljr-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTc0MyIsInBhdGgiOiJcL2ZcL2JjMGUyZTgyLWIwMzItNDdiNy1hMDNlLTkzMzA4NzZlZWRmYVwvZGZsNWxqci1iNTA4ZjMzYi01NmRjLTQxYmUtOWFmOS02ZDU2MmRlOTdlMGUucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.jFJl_gbdKdnHhiUfcgWJlJ1iFkFx_O_oXyfimaMNahc" alt="" class="top-image">
                             </div>
                             <div class="content">
-
+                                <h2 class="title">The Grand Market</h2>
+                                <p class="description">The reputable one-Michelin-star restaurant Sra Bua by Kiin Kiin at The Hotel Bangkok welcomes the warm summer</p>
                             </div>
                         </div>
                     </div>
                     <div class="second-section">
-                        <h1>helo</h1>
+                        <div class="card our-neighbor3">
+                            <div class="image-location">
+                                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/bc0e2e82-b032-47b7-a03e-9330876eedfa/ddse0eh-33d24eb3-2a90-4377-ae3c-43e2d74b9b90.jpg/v1/fill/w_1280,h_1727,q_75,strp/parallax_hal_jordan_by_garnabiuth_ddse0eh-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTcyNyIsInBhdGgiOiJcL2ZcL2JjMGUyZTgyLWIwMzItNDdiNy1hMDNlLTkzMzA4NzZlZWRmYVwvZGRzZTBlaC0zM2QyNGViMy0yYTkwLTQzNzctYWUzYy00M2UyZDc0YjliOTAuanBnIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.94HW2qHd9nrYzNeOyVCw8FWq8Q-pN4eLpiMCcrauwYM" alt="" class="top-image">
+                            </div>
+                            <div class="content">
+                                <h2 class="title">The Grand Market</h2>
+                                <p class="description">The reputable one-Michelin-star restaurant Sra Bua by Kiin Kiin at The Hotel Bangkok welcomes the warm summer</p>
+                            </div>
+                        </div>
+                        <div class="card our-neighbor4">
+                            <div class="image-location">
+                                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/01ee2fa2-550c-44a7-9c54-9b09bdf80188/de6yilt-99a3315a-88eb-4973-994d-7e691bbc61c8.jpg/v1/fill/w_1280,h_1715,q_75,strp/nightwing_by_mariano1990_de6yilt-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTcxNSIsInBhdGgiOiJcL2ZcLzAxZWUyZmEyLTU1MGMtNDRhNy05YzU0LTliMDliZGY4MDE4OFwvZGU2eWlsdC05OWEzMzE1YS04OGViLTQ5NzMtOTk0ZC03ZTY5MWJiYzYxYzguanBnIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.6BrHatBwxEmmDTsEd-V_V2Et-qTBcnK11GLJ4uEY72k" alt="" class="top-image">
+                            </div>
+                            <div class="content">
+                                <h2 class="title">The Grand Market</h2>
+                                <p class="description">The reputable one-Michelin-star restaurant Sra Bua by Kiin Kiin at The Hotel Bangkok welcomes the warm summer</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="third-section">
-                        <h1>helo</h1>
+                        <div class="card our-neighbor5">
+                            <div class="image-location">
+                                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/01ee2fa2-550c-44a7-9c54-9b09bdf80188/de8k2uz-4be4710f-d49f-4ddd-bf40-9e7db5d3e833.jpg/v1/fill/w_1600,h_2141,q_75,strp/dr__fate_by_mariano1990_de8k2uz-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MjE0MSIsInBhdGgiOiJcL2ZcLzAxZWUyZmEyLTU1MGMtNDRhNy05YzU0LTliMDliZGY4MDE4OFwvZGU4azJ1ei00YmU0NzEwZi1kNDlmLTRkZGQtYmY0MC05ZTdkYjVkM2U4MzMuanBnIiwid2lkdGgiOiI8PTE2MDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.0oRJ2BFeR1EDnAtchZErGwVm5fGGgxGsl972VF3JOjE" alt="" class="top-image">
+                            </div>
+                            <div class="content">
+                                <h2 class="title">The Grand Market</h2>
+                                <p class="description">The reputable one-Michelin-star restaurant Sra Bua by Kiin Kiin at The Hotel Bangkok welcomes the warm summer</p>
+                            </div>
+                        </div>
+                        <div class="card our-neighbor6">
+                            <div class="image-location">
+                                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/01ee2fa2-550c-44a7-9c54-9b09bdf80188/de4i6a7-d32405c6-fb5f-4bbc-9d8f-11e569cc4f24.jpg/v1/fill/w_1280,h_1978,q_75,strp/hawkman_by_mariano1990_de4i6a7-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTk3OCIsInBhdGgiOiJcL2ZcLzAxZWUyZmEyLTU1MGMtNDRhNy05YzU0LTliMDliZGY4MDE4OFwvZGU0aTZhNy1kMzI0MDVjNi1mYjVmLTRiYmMtOWQ4Zi0xMWU1NjljYzRmMjQuanBnIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.IBC-vPlBZ-PJ92SE9ZImDowxqPAoJELenGVjPHFS89o" alt="" class="top-image">
+                            </div>
+                            <div class="content">
+                                <h2 class="title">The Grand Market</h2>
+                                <p class="description">The reputable one-Michelin-star restaurant Sra Bua by Kiin Kiin at The Hotel Bangkok welcomes the warm summer</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
+            @include('components.notify-form')
         @endsection
     </body>
 </html>
