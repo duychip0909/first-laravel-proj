@@ -36,7 +36,7 @@
                     <li class="link-item"><a href="#">Add Room Details</a></li>
                     <li class="link-item"><a href="#">Edit Room Details</a></li>
                     <li class="link-item"><a href="#">View All Rooms</a></li>
-                    <li class="logout animate p-2 d-flex align-items-center justify-content-center mt-4 mb-2"><a href="#">Log Out</a></li>
+                    <li class="logout animate p-2 d-flex align-items-center justify-content-center mt-4 mb-2"><a href="{{route('logout')}}">Log Out</a></li>
                 </ul>
             </div>
         </section>

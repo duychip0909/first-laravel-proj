@@ -10,14 +10,9 @@
     <body class="antialiased">
         @extends('layouts.app')
         @section('content')
+                <h2>Hello {{$location->name}}</h2>
             <div class="wrapper">
-                <div class="swiper headerSwiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1536238349444-c05ffb6837e4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80" alt=""></div>
-                        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1532313944948-f7c5433f64e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt=""></div>
-                        <div class="swiper-slide"><img src="https://images.unsplash.com/flagged/photo-1555445777-a34b0190e76d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1700&q=80" alt=""></div>
-                    </div>
-                </div>
+                <div class="header-banner"><img src="" alt=""></div>
                 <h2 class="swiper-banner">{{$data['title']}}</h2>
             </div>
             <div class="container">
@@ -31,28 +26,13 @@
             </div>
 
             <div class="container-xl">
-                <section class="loation-list">
-                    <h2 class="section-title fw-bold">Our Location</h2>
-                    <div class="swiper location">
-                        <div class="swiper-wrapper">
-                            @foreach($list as $location)
-                                <div class="swiper-slide">
-                                    <div class="card-location">
-                                        <div class="card-img">
-                                            <img src="{{$location->image}}" alt="" />
-                                        </div>
-                                        <div class="card-content">
-                                            <a href="/location-detail/{{$location->id}}" class="btn-view">View hotel</a>
-                                            <div class="location-name">{{$location->name}}</div>
-                                            <div class="location-des">{{$location->description}}</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </section>
+
             </div>
+            <section class="room-service d-grid">
+                <div class="fullwidth-banner">
+                    <img src="{{asset('imgs/icon-safari.png')}}" alt="">
+                </div>
+            </section>
             <section class="new-place d-grid">
                 <div class="left-side d-flex align-items-start justify-content-center flex-column">
                     <h2 class="header-title m-0">New places, new spaces</h2>
@@ -97,30 +77,32 @@
                     </div>
                 </div>
             </section>
-            <section class="new-place d-grid">
-                <div class="left-side d-flex align-items-start justify-content-center flex-column">
-                    <h2 class="header-title m-0">Conscious Hotel The Tire Station</h2>
-                    <p class="my-4">The reputable one-Michelin-star restaurant Sra Bua by Kiin Kiin at The Hotel Bangkok welcomes the warm summer</p>
-                    <a href="#" class="learnmore-btn">get directions</a>
-                </div>
-                <div class="right-side">
-                    <div class="image-frame split">
-                        <img src="https://images.unsplash.com/photo-1600869080148-338f85fb17f8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=669&q=80" alt="">
-                        <img src="https://images.unsplash.com/photo-1588776873786-a51f317c3dbf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80" alt="">
-                    </div>
-                </div>
-            </section>
-            <section class="text-center container mb-5">
-                <div class="receivemail-form">
-                    <img src="{{asset('imgs/passport-icon.png')}}" alt="" class="ticket">
-                    <h2 class="header-title">Get The Good Stuff</h2>
-                    <p>Sign up to our newsletter to be the first to hear about great offers, new openings and events.</p>
-                    <form action="post">
-                        <div class="mail-input mt-5 py-2">
-                            <input type="text" placeholder="Your email address" class="d-block test">
+            <section class="text-center our-neighbor container">
+                <div class="d-grid content">
+                    <div class="first-section">
+                        <div class="card our-neighbor1">
+                            <div class="image-location">
+
+                            </div>
+                            <div class="content">
+
+                            </div>
                         </div>
-                        <a href="#" class="learnmore-btn reverse-btn mt-4">sign up</a>
-                    </form>
+                        <div class="card our-neighbor2">
+                            <div class="image-location">
+
+                            </div>
+                            <div class="content">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="second-section">
+                        <h1>helo</h1>
+                    </div>
+                    <div class="third-section">
+                        <h1>helo</h1>
+                    </div>
                 </div>
             </section>
         @endsection

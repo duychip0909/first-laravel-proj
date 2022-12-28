@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Location;
+use Egulias\EmailValidator\Parser\CommentStrategy\LocalComment;
 use Illuminate\Http\Request;
 //use DB;
 
@@ -48,9 +49,14 @@ class LocationController extends Controller
         return redirect('locationlist');
     }
 
-//    function show(Request $request) {
-//        return view('location-list', ['list' => Location::all()]);
-//    }
+    function location_detail($id) {
+        $data = [
+            'title' => 'Welcome to The hotel',
+            'content' => 'A series of open-house hotels inspired by the diversity and originality of the streets and scenes that surround us.'
+        ];
+        $location = Location::where('id', '=', $id)->select('*')->first();
+        return view('location-detail', compact('data', 'location'));
+    }
 
     function returnHome() {
         $data = [
@@ -59,5 +65,7 @@ class LocationController extends Controller
         ];
         return view('welcome', ['list' => Location::all()], compact('data'));
     }
+
+
 
 }
