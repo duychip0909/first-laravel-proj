@@ -26,7 +26,8 @@ class LocationsTableSeeder extends Seeder
                 'status' => $faker->numberBetween($min = 0, $max = 1),
                 'created_at' => $faker->date("Y-m-d H:i:s"),
                 'updated_at' => $faker->date('Y-m-d H:i:s'),
-                'image' => $faker->imageUrl(1920, 1080, 'animals', true, true, true)
+                'image' => $faker->imageUrl(1920, 1080, 'animals', true, true, true),
+                'region_id' => $faker->numberBetween($min = 1, $max = 4)
             ]);
         }
     }

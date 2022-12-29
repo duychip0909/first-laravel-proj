@@ -331,7 +331,7 @@ section {
 }
 
 #locationList #AddNewLocation .modal-content input,
-#locationList #EditLocation .modal-content input {
+#locationList #EditLocation .modal-content input, select{
     display: block;
     position: relative;
     width: 100%;
@@ -740,6 +740,30 @@ footer .footer-title {
     color: #fff;
     font-size: 80px;
     font-weight: 700;
+}
+
+.region {
+    padding: 5px 0;
+    max-width: 120px;
+    width: 100%;
+    margin: 0 auto;
+    line-height: 1.1;
+}
+.region_1 {
+    background: rgba(139, 0, 0, 0.1);
+    color: rgba(139, 0, 0);
+}
+.region_2 {
+    background: rgba(32, 121, 53, 0.1);
+    color: rgba(32, 121, 53);
+}
+.region_3 {
+    background: rgba(45, 88, 123, 0.1);
+    color: rgba(45, 88, 123);
+}
+.region_4 {
+    background: rgba(248, 214, 44, 0.1);
+    color: rgba(248, 214, 44);
 }
 
 

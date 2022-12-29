@@ -32,13 +32,15 @@ Route::post('store', [LocationController::class, 'store']);
 
 Route::get('edit/{id}', [LocationController::class, 'edit']);
 
-Route::put('update/{id}', [LocationController::class, 'update']);
+Route::post('update/{id}', [LocationController::class, 'update']);
 
-Route::delete('delete/{id}', [LocationController::class, 'destroy']);
+Route::post('delete/{id}', [LocationController::class, 'destroy']);
 
-Route::get('locationadd', [LocationController::class, 'index'])->middleware('auth:web');
+Route::get('locationadd', [LocationController::class, 'list'])->middleware('auth:web');
 
-Route::get('locationlist', [LocationController::class, 'list'])->middleware('auth:web');
+Route::get('locationlist', [LocationController::class, 'index'])->middleware('auth:web');
+
+Route::get('filter/{id}', [LocationController::class, 'filter']);
 
 Route::get('sidebar', [RouteController::class, 'sidebar']);
 

@@ -67,6 +67,14 @@
             $('#EditLocation input[name="image"]').val($(this).data('json').image);
             $('#EditLocation input[name="status"]').val($(this).data('json').status);
         });
+
+        $(function() {
+            $('select').on('change', function() {
+                let type = $(this).val();
+                $('.form-filter').attr('action', '/filter/' + type);
+                $('.form-filter').trigger('submit');
+            })
+        })
     </script>
 </body>
 </html>

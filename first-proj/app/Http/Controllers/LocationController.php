@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Location;
+use App\Models\Region;
 use Egulias\EmailValidator\Parser\CommentStrategy\LocalComment;
 use Illuminate\Http\Request;
 //use DB;
@@ -15,17 +16,23 @@ class LocationController extends Controller
         $location->description = $request->input('locationContent');
         $location->image = $request->input('image');
         $location->status = $request->input('status');
+        $location->region_id = $request->input('region_id');
         $location->save();
         return redirect('locationadd');
     }
 
     public function index() {
-//        $locations = DB::table('locations')->get();
-        return view('location-add', ['list' => Location::all()]);
+        return view('location-list', [
+            'locationList' => Location::all(),
+            'regionList' => Region::all()
+        ]);
     }
 
     public function list() {
-        return view('location-list', ['list' => Location::all()]);
+        return view('location-add', [
+            'locationList' => Location::all(),
+            'regionList' => Region::all()
+        ]);
     }
 
     public function edit($id) {
@@ -34,20 +41,30 @@ class LocationController extends Controller
     }
 
     public function destroy($id) {
-        $location = Location::find($id);
+        $location = Location::findOrFail($id);
         $location->delete();
         return redirect('locationadd');
     }
 
+    function filter(Request $request) {
+        return view('location-list', [
+            'locationList' => Location::where('region_id', $request->get("filter"))->get(),
+            'regionList' => Region::all(),
+        ]);
+    }
+
     public function update(Request $request, $id) {
-        $location = Location::find($id);
+        $location = Location::findOrFail($id);
         $location->name = $request->input('locationName');
         $location->description = $request->input('locationContent');
         $location->image = $request->input('image');
         $location->status = $request->input('status');
+        $location->region_id = $request->input('region_id');
         $location->save();
-        return redirect('locationlist');
+        return redirect('locationadd');
     }
+
+
 
     function location_detail($id) {
         $data = [

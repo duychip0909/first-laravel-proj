@@ -18,16 +18,22 @@
                             <th>Name</th>
                             <th>Description</th>
                             <th>Status</th>
+                            <th>Region</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($list as $location)
+                        @foreach($locationList as $location)
                             <tr>
                                 <td>{{$location->id}}</td>
                                 <td>{{$location->name}}</td>
                                 <td class="text-wrap text-start">{{$location->description}}</td>
                                 <td>{{$location->status}}</td>
+                                <td>
+                                    <div class="region region_{{$location->region->id}}">
+                                        {{$location->region->region}}
+                                    </div>
+                                </td>
                                 <td>
                                     <a href="/update/{{$location->id}}" data-json="{{json_encode($location)}}" data-action="update" class="d-inline-block" data-bs-toggle="modal" data-bs-target="#EditLocation"><img src="{{asset('imgs/edit.svg')}}" alt=""></a>
                                     <a href="/delete/{{$location->id}}" data-action="remove" data-bs-toggle="modal" data-bs-target="#confirmRemove"><img src="{{asset('imgs/bin.svg')}}" alt=""></a>
@@ -47,9 +53,9 @@
                             </h2>
                         </div>
                         <div class="modal-footer justify-content-center">
-                            <form action="" method="post" class="d-flex align-items-center justify-content-evenly w-100">
+                            <form method="post" class="d-flex align-items-center justify-content-evenly w-100">
                                 @csrf
-                                @method('delete')
+                                @method('post')
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-primary">Confirm</button>
                             </form>
@@ -87,6 +93,15 @@
                                         <label for="status" class="mb-1">Status</label>
                                          <input type="text" class="mb-3" name="status" placeholder="Status here...">
                                      </div>
+
+                                    <div class="inputWrap">
+                                        <label for="region_id" class="mb-1">Region</label>
+                                        <select name="region_id" id="" class="d-block region_select mb-3">
+                                            @foreach($regionList as $region)
+                                                <option value="{{$region->id}}">{{$region->region}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                 </div>
                                 <button class="btn-confirm" role="button"><span class="text">Confirm</span></button>
                             </form>
@@ -104,7 +119,6 @@
                                 <div class="modal-body">
                                     <form method="post">
                                         @csrf
-                                        @method('put')
                                         <div class="info">
                                             <div class="inputWrap">
                                                 <label for="name" class="mb-1">Name</label>
@@ -123,6 +137,15 @@
                                             <div class="inputWrap">
                                                 <label for="status" class="mb-1">Status</label>
                                                 <input type="text" class="mb-3" name="status" placeholder="Status here...">
+                                            </div>
+
+                                            <div class="inputWrap">
+                                                <label for="region_id" class="mb-1">Region</label>
+                                                <select name="region_id" id="" class="mb-3">
+                                                    @foreach($regionList as $region)
+                                                        <option value="{{$region->id}}">{{$region->region}}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                         </div>
                                         <button class="btn-confirm" role="button" data-action="update" type="submit"><span class="text">Update</span></button>
