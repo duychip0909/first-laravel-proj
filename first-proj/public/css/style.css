@@ -534,7 +534,7 @@ section {
 .receivemail-form {
     max-width: 456px;
     width: 100%;
-    margin: 0 auto;
+    margin: 60px auto;
 }
 
 .mail-input {
@@ -764,6 +764,86 @@ footer .footer-title {
 .region_4 {
     background: rgba(248, 214, 44, 0.1);
     color: rgba(248, 214, 44);
+}
+
+.overlay {
+    position: relative;
+}
+
+.overlay:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(51, 51, 51, 0.3);
+    inset: 0 0 0 0;
+}
+
+.card-overlay-content {
+    position: absolute;
+    inset: 100px auto auto 40px;
+    z-index: 1;
+}
+
+.card-overlay-content .learnmore-btn {
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.card-overlay-content h2 {
+    font-size: 60px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.card-overlay-content p {
+    font-size: 16px;
+    color: #fff;
+    max-width: 700px;
+    width: 100%;
+}
+
+.overlay img {
+    object-fit: cover;
+    aspect-ratio: 1903 / 730;
+    width: 100%;
+    height: 100%;
+}
+
+.information-receive {
+    max-width: 1140px;
+    width: 100%;
+    padding: 40px;
+    border: 1px solid #d6d6d6;
+}
+
+.information-receive .learnmore-btn {
+    background: #333;
+    color: #fff;
+}
+
+.input-wrap label, .input-wrap input {
+    display: block;
+    text-align: start;
+}
+
+.input-wrap {
+    width: 24%;
+}
+
+.input-wrap input[type="date"] {
+    border: 0;
+    padding: 12px   ;
+    border-bottom: 1px solid #333;
+}
+
+.input-wrap input[type="date"]:focus {
+    outline: 0;
+}
+
+.input-wrap label {
+    margin-bottom: 5px;
 }
 
 

@@ -11,29 +11,26 @@
         @extends('layouts.app')
         @section('content')
             @include('components.location-detail-banner')
-            <div class="wrapper">
-                <div class="header-banner"><img src="" alt=""></div>
-                <h2 class="swiper-banner">{{$data['title']}}</h2>
-            </div>
-            <div class="container">
+            <div class="container mt-5">
                 <div class="quote">
-                    <p>{{$data['content']}}</p>
-
+                    <p class="m-0">{{$data['content']}}</p>
                     <div class="image-des">
                         <img src="{{ asset('imgs/icon-safari.png') }}" alt="">
                     </div>
                 </div>
             </div>
-
-            <div class="container-xl">
-
-            </div>
-            <section class="room-service d-grid">
-                <div class="fullwidth-banner">
-                    <img src="{{asset('imgs/icon-safari.png')}}" alt="">
+            @include('components.information-receive')
+            <div class="card-overlay g-0 position-relative">
+                <div class="card-overlay-content">
+                    <h2 class="m-0">Sleep With Us</h2>
+                    <p class="my-4">Since hotel policies regarding early check-in (generally before 2:00 pm) or late checkout (generally after 12:00 pm) vary by location and by hotel, please call the hotel directly prior to your arrival to make any necessary arrangements. </p>
+                    <a href="#" class="learnmore-btn">View Accomodations</a>
                 </div>
-            </section>
-            <section class="new-place d-grid">
+                <div class="overlay">
+                    <img src="https://images.unsplash.com/photo-1571508601891-ca5e7a713859?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="">
+                </div>
+            </div>
+            <section class="new-place d-grid m-0">
                 <div class="left-side d-flex align-items-start justify-content-center flex-column">
                     <h2 class="header-title m-0">New places, new spaces</h2>
                     <p class="my-4">The reputable one-Michelin-star restaurant Sra Bua by Kiin Kiin at The Hotel Bangkok welcomes the warm summer</p>
@@ -138,6 +135,18 @@
                                 <p class="description">The reputable one-Michelin-star restaurant Sra Bua by Kiin Kiin at The Hotel Bangkok welcomes the warm summer</p>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </section>
+            <section class="new-place d-grid m-0">
+                <div class="left-side d-flex align-items-start justify-content-center flex-column">
+                    <h2 class="header-title m-0">The Hotel</h2>
+                    <p class="my-4">address here...</p>
+                    <a href="#" class="learnmore-btn">Get Directions</a>
+                </div>
+                <div class="right-side">
+                    <div class="image-frame">
+                        <img src="https://images.unsplash.com/photo-1536086845112-89de23aa4772?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="">
                     </div>
                 </div>
             </section>

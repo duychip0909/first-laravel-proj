@@ -22,7 +22,7 @@
                 <li class="nav-item"><a href="about" class="nav-link">About Us</a></li>
                 <li class="nav-item"><a href="contact" class="nav-link">Contact</a></li>
             </ul>
-            <a href="#" class="book-btn">BOOK</a>
+            <a href="/booking" class="book-btn">BOOK</a>
         </nav>
     </header>
     @yield('content')

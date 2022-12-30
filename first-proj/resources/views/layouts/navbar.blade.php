@@ -25,7 +25,7 @@
                     <li class="menu-header">USERS</li>
                     <li class="link-item"><a href="{{route('user-list')}}">View All Users</a></li>
                     <li class="menu-header">BOOKING</li>
-                    <li class="link-item"><a href="#">New Booking</a></li>
+                    <li class="link-item"><a href="{{route('order-list')}}">New Booking</a></li>
                     <li class="link-item"><a href="#">View Booking</a></li>
                     <li class="link-item"><a href="#">Edit Booking</a></li>
                     <li class="menu-header">STAFF</li>

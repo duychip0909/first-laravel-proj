@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Location extends Model
 {
     protected $fillable = ['image','name','description','status','region_id'];
-    function region(){
-      return $this->belongsTo(Region::class, 'region_id', 'id');
+    function regions(){
+      return $this->belongsTo(Region::class ,'region_id', 'id');
     }
 }

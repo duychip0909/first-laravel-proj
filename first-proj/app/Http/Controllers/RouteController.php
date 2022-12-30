@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Location;
+use App\Models\User;
+use App\Models\Order;
 
 class RouteController extends Controller
 {
@@ -36,4 +38,8 @@ class RouteController extends Controller
         return view('register');
     }
 
+    function orderlist() {
+        $orders = Order::all();
+        return view('order-list', compact('orders'));
+    }
 }

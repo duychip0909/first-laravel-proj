@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Location;
+use App\Models\Order;
+use App\Models\User;
 use App\Models\Region;
 use Egulias\EmailValidator\Parser\CommentStrategy\LocalComment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 //use DB;
 
 class LocationController extends Controller
@@ -23,14 +27,14 @@ class LocationController extends Controller
 
     public function index() {
         return view('location-list', [
-            'locationList' => Location::all(),
+            'locationFound' => Location::all(),
             'regionList' => Region::all()
         ]);
     }
 
     public function list() {
         return view('location-add', [
-            'locationList' => Location::all(),
+            'locationFound' => Location::all(),
             'regionList' => Region::all()
         ]);
     }
@@ -46,9 +50,9 @@ class LocationController extends Controller
         return redirect('locationadd');
     }
 
-    function filter(Request $request) {
+    function filter($id) {
         return view('location-list', [
-            'locationList' => Location::where('region_id', $request->get("filter"))->get(),
+            'locationFound' => Region::find($id)->locations,
             'regionList' => Region::all(),
         ]);
     }
@@ -71,8 +75,9 @@ class LocationController extends Controller
             'title' => 'Welcome to The hotel',
             'content' => 'A series of open-house hotels inspired by the diversity and originality of the streets and scenes that surround us.'
         ];
-        $location = Location::where('id', '=', $id)->select('*')->first();
-        return view('location-detail', compact('data', 'location'));
+        $locationList = Location::all();
+        $searchedInfo = Location::where('id', '=', $id)->select('*')->first();
+        return view('location-detail', compact('data', 'searchedInfo', 'locationList'));
     }
 
     function returnHome() {
@@ -83,6 +88,20 @@ class LocationController extends Controller
         return view('welcome', ['list' => Location::all()], compact('data'));
     }
 
+    public function book() {
+        return view('book-form');
+    }
 
-
+    public function storeBooking(Request $request) {
+        $currentUser = User::find(Auth::id())->id;
+        $order = new Order;
+        $order->name = $request->input('name');
+        $order->email = $request->input('email');
+        $order->enquiry = $request->input('enquiry');
+        $order->message = $request->input('message');
+        $order->user_id = $currentUser;
+        $order->region_id = $request->input('region_id');
+        $order->save();
+        return redirect('locationadd');
+    }
 }

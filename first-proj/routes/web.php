@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RouteController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,3 +58,13 @@ Route::prefix('auth')->group(function () {
     Route::post('process', [AuthController::class, 'check']);
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 });
+
+Route::get('information-filled', [LocationController::class, 'filled_info']);
+
+Route::get('/booking', [LocationController::class, 'book'])->name('book-form');
+
+Route::get('/storeBooking', [LocationController::class, 'storeBooking']);
+
+Route::get('order-list', [RouteController::class, 'orderlist'])->name('order-list');
+
+Route::get('/view-detail/{id}', [OrderController::class, 'orderDetail']);

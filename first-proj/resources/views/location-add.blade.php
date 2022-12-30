@@ -23,15 +23,15 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($locationList as $location)
+                        @foreach($locationFound as $location)
                             <tr>
                                 <td>{{$location->id}}</td>
                                 <td>{{$location->name}}</td>
                                 <td class="text-wrap text-start">{{$location->description}}</td>
                                 <td>{{$location->status}}</td>
                                 <td>
-                                    <div class="region region_{{$location->region->id}}">
-                                        {{$location->region->region}}
+                                    <div class="region region_{{$location->regions->id}}">
+                                        {{$location->regions->region}}
                                     </div>
                                 </td>
                                 <td>
