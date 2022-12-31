@@ -5,6 +5,7 @@ use App\Http\Controllers\RouteController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\RoomController;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,3 +69,7 @@ Route::get('/storeBooking', [LocationController::class, 'storeBooking']);
 Route::get('order-list', [RouteController::class, 'orderlist'])->name('order-list');
 
 Route::get('/view-detail/{id}', [OrderController::class, 'orderDetail']);
+
+Route::get('/add-room', [RoomController::class, 'routeRoomAdd'])->name('routeRoomAdd');
+
+Route::get('/storeRoom', [RoomController::class, 'storeRoom']);

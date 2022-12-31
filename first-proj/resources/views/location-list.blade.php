@@ -14,9 +14,9 @@
                         @endforeach
                     </select>
                 </form>
-                <form action="/test">
-                    <button type="submit" class="btn-search">Search</button>
-                </form>
+{{--                <form action="/test">--}}
+{{--                    <button type="submit" class="btn-search">Search</button>--}}
+{{--                </form>--}}
             </div>
             <div class="d-grid template">
                 @foreach($locationFound as $location)

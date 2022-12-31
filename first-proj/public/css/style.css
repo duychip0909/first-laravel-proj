@@ -846,6 +846,29 @@ footer .footer-title {
     margin-bottom: 5px;
 }
 
+#book-form {
+    grid-template-columns: 1fr 1fr;
+}
+
+#book-form .sub-banner img {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+}
+
+#book-form .title {
+    font-size: 65px;
+    font-weight: 700;
+}
+
+#book-form .description {
+    font-size: 22px;
+    font-weight: 400;
+}
+
+
+
+
 
 
 

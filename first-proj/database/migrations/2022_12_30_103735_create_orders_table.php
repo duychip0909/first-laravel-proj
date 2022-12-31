@@ -16,13 +16,17 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->integer('phone_number');
             $table->string('email');
-            $table->string('enquiry');
-            $table->string('message');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('room_id');
+            $table->foreign('room_id')->references('id')->on('rooms');
+           $table->unsignedBigInteger(    'user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->unsignedBigInteger('region_id');
-            $table->foreign('region_id')->references('id')->on('regions');
+            $table->unsignedBigInteger('location_id');
+            $table->foreign('location_id')->references('id')->on('locations');
+            $table->integer('adult_quantity');
+            $table->integer('children_quantity');
+            $table->string('message');
             $table->timestamps();
         });
     }

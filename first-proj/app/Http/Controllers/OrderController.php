@@ -6,6 +6,7 @@ use App\Models\Location;
 use App\Models\Order;
 use App\Models\User;
 use App\Models\Region;
+use App\Models\Room;
 use Egulias\EmailValidator\Parser\CommentStrategy\LocalComment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
