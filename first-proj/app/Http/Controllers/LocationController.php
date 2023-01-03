@@ -23,7 +23,11 @@ class LocationController extends Controller
         $location->status = $request->input('status');
         $location->region_id = $request->input('region_id');
         $location->save();
-        return redirect('locationadd');
+        if ($location->save()) {
+            return redirect('locationadd')->with('success', 'Create new location successfully');
+        } else {
+            return redirect('locationadd')->with('failure', 'Create new location fail');
+        }
     }
 
     public function index() {
@@ -66,7 +70,11 @@ class LocationController extends Controller
         $location->status = $request->input('status');
         $location->region_id = $request->input('region_id');
         $location->save();
-        return redirect('locationadd');
+        if ($location->save()) {
+            return redirect('locationadd')->with('success', 'Update successfully');
+        } else {
+            return redirect('locationadd')->with('failure', 'Update fail');
+        }
     }
 
 
@@ -109,6 +117,10 @@ class LocationController extends Controller
         $order->children_quantity = $request->input('children_quantity');
         $order->message = $request->input('message');
         $order->save();
-        return redirect('return_page');
+        if ($order->save()) {
+            return redirect('/')->with('success', 'Order successfully');
+        } else {
+            return redirect('/')->with('failure', 'Order fail');
+        }
     }
 }

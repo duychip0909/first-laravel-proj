@@ -31,7 +31,7 @@ class AuthController extends Controller
         if (Auth::attempt($user)) {
             return redirect('locationlist')->with('success', 'You are now logged in.');
         } else {
-            return redirect('auth/admin');
+            return redirect('auth/admin')->with('failure', 'The user name or password are incorrect.');
         }
     }
 

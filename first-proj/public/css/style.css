@@ -894,8 +894,18 @@ footer .footer-title {
     border-radius: 0;
 }
 
-.toast .toast-header {
+.toast-header {
+    border-radius: 0;
+    border: none;
+}
+
+.toast.success .toast-header {
     background: green;
+    color: #fff;
+}
+
+.toast.fail .toast-header {
+    background: #CA0B00;
     color: #fff;
 }
 

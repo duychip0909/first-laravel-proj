@@ -1,5 +1,20 @@
 @extends('layouts.admin')
 @section('content')
+    @if($alert = Session::get('failure'))
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div class="toast fail" id="liveToast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <strong class="me-auto">Failure!!!</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                    <div class="success fs-6">
+                        {{ $alert }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
     <div class="main-block" id="register">
         <div class="container d-flex align-items-center justify-content-center h-100">
             <div class="card register">

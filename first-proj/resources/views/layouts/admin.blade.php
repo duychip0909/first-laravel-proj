@@ -38,6 +38,12 @@
             $('#EditLocation input[name="image"]').val($(this).data('json').image);
             $('#EditLocation input[name="status"]').val($(this).data('json').status);
         });
+
+        const toastLiveExample = document.getElementById('liveToast');
+        window.addEventListener('load', (event) => {
+            const toast = new bootstrap.Toast(toastLiveExample)
+            toast.show()
+        });
     </script>
 </body>
 </html>
