@@ -73,3 +73,5 @@ Route::get('/view-detail/{id}', [OrderController::class, 'orderDetail']);
 Route::get('/add-room', [RoomController::class, 'routeRoomAdd'])->name('routeRoomAdd');
 
 Route::get('/storeRoom', [RoomController::class, 'storeRoom']);
+
+Route::get('return_page', [LocationController::class, 'index']);

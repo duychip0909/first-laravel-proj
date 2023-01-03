@@ -18,4 +18,5 @@ class OrderController extends Controller
         $orderFound = Order::find($id);
         return view('order-detail', compact('orderFound'));
     }
+
 }

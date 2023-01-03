@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Location;
 use App\Models\Order;
+use App\Models\Room;
 use App\Models\User;
 use App\Models\Region;
 use Egulias\EmailValidator\Parser\CommentStrategy\LocalComment;
@@ -89,19 +90,25 @@ class LocationController extends Controller
     }
 
     public function book() {
-        return view('book-form');
+        $locations = Location::all();
+        $rooms = Room::all();
+        return view('book-form', compact('locations', 'rooms'));
     }
+
 
     public function storeBooking(Request $request) {
         $currentUser = User::find(Auth::id())->id;
         $order = new Order;
         $order->name = $request->input('name');
+        $order->phone_number = $request->input('phone_number');
         $order->email = $request->input('email');
-        $order->enquiry = $request->input('enquiry');
-        $order->message = $request->input('message');
+        $order->room_id = $request->input('room_id');
         $order->user_id = $currentUser;
-        $order->region_id = $request->input('region_id');
+        $order->location_id = $request->input('location_id');
+        $order->adult_quantity = $request->input('adult_quantity');
+        $order->children_quantity = $request->input('children_quantity');
+        $order->message = $request->input('message');
         $order->save();
-        return redirect('locationadd');
+        return redirect('return_page');
     }
 }

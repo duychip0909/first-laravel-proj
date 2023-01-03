@@ -21,4 +21,8 @@ class Order extends Model
     public function room() {
         return $this->belongsTo(Room::class, 'room_id', 'id');
     }
+
+    public function location() {
+        return $this->belongsTo(Location::class, 'location_id', 'id');
+    }
 }

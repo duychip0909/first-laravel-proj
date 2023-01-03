@@ -866,6 +866,29 @@ footer .footer-title {
     font-weight: 400;
 }
 
+.form-wrapper.booking {
+    padding: 0 150px;
+}
+
+.form-wrapper input {
+    display: block;
+    position: relative;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #333;
+    color: #333;
+    outline: 0;
+}
+
+.form-wrapper label {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.form-wrapper textarea:focus {
+    outline: none;
+}
+
 
 
 

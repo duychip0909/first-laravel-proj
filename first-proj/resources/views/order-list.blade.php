@@ -4,26 +4,32 @@
         <div class="table-wrapper">
             <table class="table mt-5">
                 <thead>
-                <tr>
+                <tr class="text-nowrap text-center">
                     <th scope="col">Order ID</th>
                     <th scope="col">Name</th>
+                    <th scope="col">Phone Number</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Enquiry</th>
-                    <th scope="col">Message</th>
+                    <th scope="col">Room</th>
                     <th scope="col">User</th>
-                    <th scope="col">Region</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Adult Quantity</th>
+                    <th scope="col">Children Quantity</th>
+                    <th scope="col">Message</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($orders as $order)
-                    <tr>
+                    <tr class="text-nowrap text-center">
                         <td><a href="/view-detail/{{$order->id}}">{{$order->id}}</a></td>
                         <td>{{$order->name}}</td>
-                        <td class="text-wrap text-start">{{$order->email}}</td>
-                        <td>{{$order->enquiry}}</td>
-                        <td>{{$order->message}}</td>
+                        <td>{{$order->phone_number}}</td>
+                        <td>{{$order->email}}</td>
+                        <td>{{$order->room->room_type}}</td>
                         <td>{{$order->user->name}}</td>
-                        <td>{{$order->region->region}}</td>
+                        <td>{{$order->location->name}}</td>
+                        <td>{{$order->adult_quantity}}</td>
+                        <td>{{$order->children_quantity}}</td>
+                        <td class="text-wrap">{{$order->message}}</td>
                     </tr>
                 @endforeach
                 </tbody>
