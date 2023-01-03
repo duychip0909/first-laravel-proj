@@ -24,9 +24,17 @@ class UserRegistrationRequest extends FormRequest
     public function rules()
     {
         return [
-            'username' => 'required|alpha|min:6|max:15',
-            'email' => 'required|email',
+            'username' => 'required|alpha_num|min:6|max:15',
+            'email' => 'required|email|email:rfc,dns',
             'password' => 'required|min:8'
+        ];
+    }
+
+    public function messages() {
+        return [
+            'username.required' => 'Bạn chưa nhập tên tài khoản',
+            'password.required' => 'Bạn chưa nhập mật khẩu',
+            'email.required' => 'Bạn chưa nhập email'
         ];
     }
 }

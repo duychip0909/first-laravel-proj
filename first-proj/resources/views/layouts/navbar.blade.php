@@ -75,6 +75,12 @@
                 $('.form-filter').trigger('submit');
             })
         })
+
+        const toastLiveExample = document.getElementById('liveToast');
+        window.addEventListener('load', (event) => {
+            const toast = new bootstrap.Toast(toastLiveExample)
+            toast.show()
+        });
     </script>
 </body>
 </html>

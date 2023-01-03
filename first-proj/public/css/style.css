@@ -889,6 +889,16 @@ footer .footer-title {
     outline: none;
 }
 
+.toast {
+    border: none;
+    border-radius: 0;
+}
+
+.toast .toast-header {
+    background: green;
+    color: #fff;
+}
+
 
 
 

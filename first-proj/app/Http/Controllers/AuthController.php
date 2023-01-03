@@ -29,7 +29,7 @@ class AuthController extends Controller
             'password' => $request->input('password')
         ];
         if (Auth::attempt($user)) {
-            return redirect('locationlist');
+            return redirect('locationlist')->with('success', 'You are now logged in.');
         } else {
             return redirect('auth/admin');
         }
@@ -38,8 +38,6 @@ class AuthController extends Controller
     public function logout() {
         Auth::logout();
         return redirect('auth/admin');
-
-
     }
 
     public function userlist() {

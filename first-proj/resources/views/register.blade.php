@@ -19,7 +19,7 @@
                     <label for="privacy">I agree to <a href="#">privacy policy & terms</a></label>
                     <button type="submit" class="learnmore-btn py-2 mt-4">Sign up</button>
                 </form>
-                <span class="d-inline-block text-center mt-3">Already have an account? <a href="{{route('login-form')}}" class="text-info">Sign in instead</a></span>
+                <span class="d-inline-block text-center mt-3" >Already have an account? <a href="{{route('login-form')}}" class="text-info">Sign in instead</a></span>
             </div>
         </div>
     </div>
