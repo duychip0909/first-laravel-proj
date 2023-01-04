@@ -39,7 +39,7 @@ class LocationController extends Controller
 
     public function list() {
         return view('location-add', [
-            'locationFound' => Location::all(),
+            'locationFound' => Location::withTrashed()->get(),
             'regionList' => Region::all()
         ]);
     }

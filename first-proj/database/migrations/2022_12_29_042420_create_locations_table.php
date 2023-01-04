@@ -22,6 +22,7 @@ return new class extends Migration
             $table->unsignedBigInteger('region_id');
             $table->foreign('region_id')->references('id')->on('regions');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
