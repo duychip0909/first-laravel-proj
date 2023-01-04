@@ -10,7 +10,14 @@ use Illuminate\Testing\Fluent\Concerns\Has;
 class Location extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $fillable = ['image','name','description','status','region_id'];
+    protected $fillable = [
+        'image',
+        'name',
+        'description',
+        'status',
+        'region_id',
+        'deleted_at'
+    ];
     function regions(){
       return $this->belongsTo(Region::class ,'region_id', 'id');
     }

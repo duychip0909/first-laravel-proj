@@ -75,3 +75,5 @@ Route::get('/add-room', [RoomController::class, 'routeRoomAdd'])->name('routeRoo
 Route::get('/storeRoom', [RoomController::class, 'storeRoom']);
 
 Route::get('return_page', [RouteController::class, 'returnAbout']);
+
+Route::get('/hide/{id}', [LocationController::class, 'hide']);

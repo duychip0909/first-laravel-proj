@@ -50,8 +50,7 @@ class LocationController extends Controller
     }
 
     public function destroy($id) {
-        $location = Location::findOrFail($id);
-        $location->delete();
+        Location::withTrashed()->where('id', $id)->forceDelete();
         return redirect('locationadd');
     }
 
@@ -122,5 +121,15 @@ class LocationController extends Controller
         } else {
             return redirect('/')->with('failure', 'Order fail');
         }
+    }
+
+    public function hide($id) {
+        $item = Location::withTrashed()->where('id', $id)->first();
+        if ($item->deleted_at != null)
+            $item->restore();
+        else
+            $item->delete();
+
+        return $item;
     }
 }

@@ -43,7 +43,22 @@
                                 <td>{{$location->id}}</td>
                                 <td>{{$location->name}}</td>
                                 <td class="text-wrap text-start">{{$location->description}}</td>
-                                <td>{{$location->status}}</td>
+                                <td>
+                                    {{$location->status}}
+                                    <div class="checkbox-wrapper-3">
+                                        <input
+                                        type="checkbox"
+                                        name="status"
+                                        id="cbx-{{$location->id}}"
+                                        data-action="hide/{{$location->id}}"
+                                        {{$location->deleted_at == null ? 'checked' : ''}}
+                                        />
+                                        <label for="cbx-{{$location->id}}" class="toggle"><span></span></label>
+{{--                                        <form method="post" class="form-hide d-none">--}}
+{{--                                            <input type="submit">--}}
+{{--                                        </form>--}}
+                                    </div>
+                                </td>
                                 <td>
                                     <div class="region region_{{$location->regions->id}}">
                                         {{$location->regions->region}}

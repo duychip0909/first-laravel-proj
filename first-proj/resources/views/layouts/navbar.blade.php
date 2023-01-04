@@ -76,6 +76,25 @@
             })
         })
 
+        $(function () {
+            $('input[name="status"]').on('change', function() {
+                var checkbox = $(this);
+                $.getJSON(checkbox.data('action'), function (response) {
+                    response.deleted_at == null
+                        ? checkbox.prop('checked', true)
+                        : checkbox.removeProp('checked');
+
+                })
+                // let status = $(this).is(':checked');
+                // $('.form-hide').attr('action', $(this).data('action'));
+                // $('.form-hide').trigger('submit');
+                // $.ajax({
+                //     type: 'POST',
+                //     url: ''
+                // })
+            })
+        })
+
         const toastLiveExample = document.getElementById('liveToast');
         window.addEventListener('load', (event) => {
             const toast = new bootstrap.Toast(toastLiveExample)
