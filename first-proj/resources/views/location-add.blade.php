@@ -32,9 +32,9 @@
                             <th>ID</th>
                             <th>Name</th>
                             <th>Description</th>
-                            <th>Status</th>
                             <th>Region</th>
                             <th>Actions</th>
+                            <th>Status</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -44,22 +44,6 @@
                                 <td>{{$location->name}}</td>
                                 <td class="text-wrap text-start">{{$location->description}}</td>
                                 <td>
-                                    {{$location->status}}
-                                    <div class="checkbox-wrapper-3">
-                                        <input
-                                        type="checkbox"
-                                        name="status"
-                                        id="cbx-{{$location->id}}"
-                                        data-action="hide/{{$location->id}}"
-                                        {{$location->deleted_at == null ? 'checked' : ''}}
-                                        />
-                                        <label for="cbx-{{$location->id}}" class="toggle"><span></span></label>
-{{--                                        <form method="post" class="form-hide d-none">--}}
-{{--                                            <input type="submit">--}}
-{{--                                        </form>--}}
-                                    </div>
-                                </td>
-                                <td>
                                     <div class="region region_{{$location->regions->id}}">
                                         {{$location->regions->region}}
                                     </div>
@@ -67,6 +51,21 @@
                                 <td>
                                     <a href="/update/{{$location->id}}" data-json="{{json_encode($location)}}" data-action="update" class="d-inline-block" data-bs-toggle="modal" data-bs-target="#EditLocation"><img src="{{asset('imgs/edit.svg')}}" alt=""></a>
                                     <a href="/delete/{{$location->id}}" data-action="remove" data-bs-toggle="modal" data-bs-target="#confirmRemove"><img src="{{asset('imgs/bin.svg')}}" alt=""></a>
+                                </td>
+                                <td>
+                                    <div class="checkbox-wrapper-3">
+                                        <input
+                                            type="checkbox"
+                                            name="status"
+                                            id="cbx-{{$location->id}}"
+                                            data-action="hide/{{$location->id}}"
+                                            {{$location->deleted_at == null ? 'checked' : ''}}
+                                        />
+                                        <label for="cbx-{{$location->id}}" class="toggle"><span></span></label>
+                                        {{--                                        <form method="post" class="form-hide d-none">--}}
+                                        {{--                                            <input type="submit">--}}
+                                        {{--                                        </form>--}}
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach

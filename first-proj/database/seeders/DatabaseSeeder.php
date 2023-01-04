@@ -4,6 +4,11 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Order;
+use App\Models\Room;
+use App\Models\Location;
+use App\Models\Region;
+use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,7 +27,10 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         Location::unguard();
-        $this->call(LocationsTableSeeder::class);
+        $this->call(UserSeeder::class);
         Location::reguard();
+        $this->call(RegionSeeder::class);
+        $this->call(LocationSeeder::class);
+        $this->call(RoomSeeder::class);
     }
 }
