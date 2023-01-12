@@ -2,8 +2,11 @@
 
 namespace App\Providers;
 
+use App\Services\Implements\LocationsService;
+use App\Services\Interfaces\ILocationsService;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
+
 //use Nette\Schema\Schema;
 
 class AppServiceProvider extends ServiceProvider
@@ -15,7 +18,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+       $this->app->singleton(ILocationsService::class, LocationsService::class);
     }
 
     /**

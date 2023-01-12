@@ -6,6 +6,7 @@ use App\Http\Controllers\LocationController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\RoomController;
+use App\Http\Controllers\LocationController2;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,13 +31,13 @@ Route::get('contact', [RouteController::class, 'returnContact']);
 
 Route::get('login', [RouteController::class, 'login']);
 
-Route::post('store', [LocationController::class, 'store']);
+Route::post('store', [LocationController2::class, 'store'])->name('location.store');
 
 Route::get('edit/{id}', [LocationController::class, 'edit']);
 
 Route::post('update/{id}', [LocationController::class, 'update']);
 
-Route::post('delete/{id}', [LocationController::class, 'destroy']);
+Route::delete('delete/{id}', [LocationController2::class, 'destroy']);
 
 Route::get('locationadd', [LocationController::class, 'list'])->middleware('auth:web');
 
@@ -76,4 +77,4 @@ Route::get('/storeRoom', [RoomController::class, 'storeRoom']);
 
 Route::get('return_page', [RouteController::class, 'returnAbout']);
 
-Route::get('/hide/{id}', [LocationController::class, 'hide']);
+Route::post('/hide/{id}', [LocationController2::class, 'hide']);

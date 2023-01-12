@@ -5,6 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -40,6 +41,7 @@
                 </ul>
             </div>
         </section>
+        @include('sweetalert::alert')
         @yield('content')
     </div>
     <script src="//cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
@@ -77,21 +79,19 @@
         })
 
         $(function () {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
             $('input[name="status"]').on('change', function() {
                 var checkbox = $(this);
-                $.getJSON(checkbox.data('action'), function (response) {
+                $.post(checkbox.data('action'), function (response) {
                     response.deleted_at == null
                         ? checkbox.prop('checked', true)
                         : checkbox.removeProp('checked');
 
                 })
-                // let status = $(this).is(':checked');
-                // $('.form-hide').attr('action', $(this).data('action'));
-                // $('.form-hide').trigger('submit');
-                // $.ajax({
-                //     type: 'POST',
-                //     url: ''
-                // })
             })
         })
 

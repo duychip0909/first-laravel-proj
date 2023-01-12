@@ -15,20 +15,19 @@ use Illuminate\Support\Facades\Auth;
 
 class LocationController extends Controller
 {
-    public function store(Request $request) {
-        $location = new Location;
-        $location->name = $request->input('locationName');
-        $location->description = $request->input('locationContent');
-        $location->image = $request->input('image');
-        $location->status = $request->input('status');
-        $location->region_id = $request->input('region_id');
-        $location->save();
-        if ($location->save()) {
-            return redirect('locationadd')->with('success', 'Create new location successfully');
-        } else {
-            return redirect('locationadd')->with('failure', 'Create new location fail');
-        }
-    }
+//    public function store(Request $request) {
+//        $location = new Location;
+//        $location->name = $request->input('locationName');
+//        $location->description = $request->input('locationContent');
+//        $location->image = $request->input('image');
+//        $location->region_id = $request->input('region_id');
+//        $location->save();
+//        if ($location->save()) {
+//            return redirect('locationadd')->with('success', 'Create new location successfully');
+//        } else {
+//            return redirect('locationadd')->with('failure', 'Create new location fail');
+//        }
+//    }
 
     public function index() {
         return view('location-list', [
@@ -47,11 +46,6 @@ class LocationController extends Controller
     public function edit($id) {
         $location = Location::findOrFail($id);
         return view('admin-edit', compact('location'));
-    }
-
-    public function destroy($id) {
-        Location::withTrashed()->where('id', $id)->forceDelete();
-        return redirect('locationadd');
     }
 
     function filter($id) {

@@ -16,7 +16,9 @@ class Location extends Model
         'description',
         'status',
         'region_id',
-        'deleted_at'
+        'deleted_at',
+        'created_at',
+        'updated_at'
     ];
     function regions(){
       return $this->belongsTo(Region::class ,'region_id', 'id');
