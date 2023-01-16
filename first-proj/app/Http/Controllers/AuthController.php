@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AuthController extends Controller
 {
@@ -20,24 +21,25 @@ class AuthController extends Controller
         $user->password = $password;
         $user->save($request->validated());
 
-        return redirect('auth/admin');
+        return redirect('admin');
     }
 
     public function check(UserLoginRequest $request) {
-        $user = [
-            'name' => $request->input('username'),
-            'password' => $request->input('password')
-        ];
-        if (Auth::attempt($user)) {
-            return redirect('locationlist')->with('success', 'You are now logged in.');
+        $validated = $request->validated();
+        if (Auth::attempt($validated)) {
+            toast()->success('Signed In', 'Successfully');
+            return redirect()->route('location.list');
         } else {
-            return redirect('auth/admin')->with('failure', 'The user name or password are incorrect.');
+            toast()->error('Login Failed', 'The user name or password are incorrect.');
+            return redirect()->route('login-form');
         }
     }
 
-    public function logout() {
+    public function logout(Request $request) {
         Auth::logout();
-        return redirect('auth/admin');
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->route('login-form');
     }
 
     public function userlist() {

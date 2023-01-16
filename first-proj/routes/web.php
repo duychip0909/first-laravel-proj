@@ -41,7 +41,7 @@ Route::delete('delete/{id}', [LocationController2::class, 'destroy']);
 
 Route::get('locationadd', [LocationController::class, 'list'])->middleware('auth:web');
 
-Route::get('locationlist', [LocationController::class, 'index'])->middleware('auth:web');
+Route::get('locationlist', [LocationController::class, 'index'])->name('location.list')->middleware('auth:web');
 
 Route::get('filter/{id}', [LocationController::class, 'filter']);
 
@@ -57,7 +57,7 @@ Route::prefix('auth')->group(function () {
     Route::get('admin', [RouteController::class, 'admin'])->name('login-form');
     Route::get('register', [RouteController::class, 'register'])->name('register-form');
     Route::post('signup', [AuthController::class, 'signup']);
-    Route::post('process', [AuthController::class, 'check']);
+    Route::post('process', [AuthController::class, 'check'])->name('processLogin');
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 });
 

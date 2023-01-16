@@ -37,7 +37,7 @@ class RouteController extends Controller
     }
 
     function admin() {
-        return view('login');
+        return view('login-form');
     }
 
     function register() {
