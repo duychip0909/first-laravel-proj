@@ -40,18 +40,6 @@ Route::prefix('dashboard')->group(function () {
     Route::get('userlist', [AuthController::class, 'userlist'])->name('user-list');
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
 Route::prefix('auth')->group(function () {
     Route::get('admin', [RouteController::class, 'admin'])->name('login-form');
     Route::get('register', [RouteController::class, 'register'])->name('register-form');
@@ -88,5 +76,17 @@ Route::get('/add-room', [RoomController::class, 'routeRoomAdd'])->name('routeRoo
 Route::get('/storeRoom', [RoomController::class, 'storeRoom']);
 
 Route::get('return_page', [RouteController::class, 'returnAbout']);
+
+
+
+
+
+
+
+
+
+
+
+
 
 
