@@ -21,7 +21,8 @@ class LocationController2 extends Controller
 
     public function destroy($id) {
         $this->LocationsService->destroy($id);
-        return redirect('locationadd');
+        toast('Delete location successfully','success');
+        return back();
     }
 
     public function store(locationAddRequest $request)

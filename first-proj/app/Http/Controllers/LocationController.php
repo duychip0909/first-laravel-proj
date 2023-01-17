@@ -44,8 +44,9 @@ class LocationController extends Controller
     }
 
     public function edit($id) {
-        $location = Location::findOrFail($id);
-        return view('admin-edit', compact('location'));
+        $location = Location::find($id);
+        $regionList = Region::all();
+        return view('location-edit', compact('location', 'regionList'));
     }
 
     function filter($id) {

@@ -162,6 +162,53 @@
 {{--                </div>--}}
 {{--        </section>--}}
 {{--    </div>--}}
+    <div class="card mb-4">
+        <div class="card-header d-flex align-items-center justify-content-between">
+            <h5 class="mb-0">Form create location</h5> <small class="text-muted float-end">Default label</small>
+        </div>
+        <div class="card-body">
+            <form method="post" action="{{route('location.store')}}">
+                @csrf
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" for="basic-default-name">Location Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="name" id="basic-default-name" placeholder="John Doe">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" for="basic-default-company">Location Content</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="description" id="basic-default-company" placeholder="ACME Inc.">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" for="basic-default-phone">Image</label>
+                    <div class="col-sm-10">
+                        <input type="text" id="basic-default-phone" name="image" class="form-control phone-mask" placeholder="658 799 8941" aria-label="658 799 8941" aria-describedby="basic-default-phone">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" for="basic-default-message">Region</label>
+                    <div class="col-sm-10">
+                        <div class="input-group">
+                            <label class="input-group-text" for="inputGroupSelect01">Region Options</label>
+                            <select class="form-select" name="region_id" id="inputGroupSelect01">
+                                @foreach($regionList as $region)
+                                    <option value="{{$region->id}}">{{$region->region}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row justify-content-end">
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-primary">Send</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
     <div class="card">
         <h5 class="card-header">Location Overview</h5>
         <div class="table-responsive text-nowrap">
@@ -187,15 +234,15 @@
                         <td>{{$location->regions->region}}</td>
                         <td>
                             <div class="form-check form-switch m-0">
-                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                <input class="form-check-input status-switch" data-action="hide/{{$location->id}}" {{$location->deleted_at == null ? 'checked' : ''}} type="checkbox" id="flexSwitchCheckDefault">
                             </div>
                         </td>
                         <td>
                             <div class="dropdown">
                                 <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> Edit</a>
-                                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
+                                    <a class="dropdown-item" href="{{route('location.edit', ['id' => $location->id])}}"><i class="bx bx-edit-alt me-1"></i> Edit</a>
+                                    <a class="dropdown-item" href="{{route('location.delete', ['id' => $location->id])}}"><i class="bx bx-trash me-1"></i> Delete</a>
                                 </div>
                             </div>
                         </td>
@@ -206,4 +253,13 @@
         </div>
     </div>
 
+@endsection
+
+@section('customScript')
+    <script>
+        $('.status-switch').on('change', function() {
+            let btn = $(this);
+            $.getJSON(btn.data('action'));
+        })
+    </script>
 @endsection

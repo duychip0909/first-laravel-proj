@@ -33,11 +33,11 @@ Route::get('login', [RouteController::class, 'login']);
 
 Route::post('store', [LocationController2::class, 'store'])->name('location.store');
 
-Route::get('edit/{id}', [LocationController::class, 'edit']);
+Route::get('edit/{id}', [LocationController::class, 'edit'])->name('location.edit');
 
-Route::post('update/{id}', [LocationController::class, 'update']);
+Route::post('update/{id}', [LocationController::class, 'update'])->name('location.update');
 
-Route::delete('delete/{id}', [LocationController2::class, 'destroy']);
+Route::get('delete/{id}', [LocationController2::class, 'destroy'])->name('location.delete');
 
 Route::get('locationadd', [LocationController::class, 'list'])->middleware('auth:web');
 
@@ -77,4 +77,4 @@ Route::get('/storeRoom', [RoomController::class, 'storeRoom']);
 
 Route::get('return_page', [RouteController::class, 'returnAbout']);
 
-Route::post('/hide/{id}', [LocationController2::class, 'hide']);
+Route::get('/hide/{id}', [LocationController2::class, 'hide']);
