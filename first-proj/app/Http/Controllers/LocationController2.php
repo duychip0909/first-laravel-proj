@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\locationAddRequest;
+use App\Http\Requests\locationEditRequest;
 use App\Models\Location;
 use App\Services\Interfaces\ILocationsService;
 use Illuminate\Http\Request;
@@ -36,7 +37,24 @@ class LocationController2 extends Controller
             }
             toast('Create new location successfully','success');
             return back();
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
+            toast('Error' . $e->getMessage() ,'error');
+            return back();
+        }
+    }
+
+    public function update(locationEditRequest $request, $id)
+    {
+        try {
+            $validated = $request->validated();
+            $this->LocationsService->update($validated, $id);
+            if ($validated == null) {
+                toast('Missing requirements','error');
+                return back();
+            }
+            toast('Update location successfully','success');
+            return redirect()->route('location.add');
+        } catch (\Exception $e) {
             toast('Error' . $e->getMessage() ,'error');
             return back();
         }

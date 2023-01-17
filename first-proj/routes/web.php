@@ -31,19 +31,6 @@ Route::get('contact', [RouteController::class, 'returnContact']);
 
 Route::get('login', [RouteController::class, 'login']);
 
-Route::post('store', [LocationController2::class, 'store'])->name('location.store');
-
-Route::get('edit/{id}', [LocationController::class, 'edit'])->name('location.edit');
-
-Route::post('update/{id}', [LocationController::class, 'update'])->name('location.update');
-
-Route::get('delete/{id}', [LocationController2::class, 'destroy'])->name('location.delete');
-
-Route::get('locationadd', [LocationController::class, 'list'])->middleware('auth:web');
-
-Route::get('locationlist', [LocationController::class, 'index'])->name('location.list')->middleware('auth:web');
-
-Route::get('filter/{id}', [LocationController::class, 'filter']);
 
 Route::get('sidebar', [RouteController::class, 'sidebar']);
 
@@ -53,12 +40,37 @@ Route::prefix('dashboard')->group(function () {
     Route::get('userlist', [AuthController::class, 'userlist'])->name('user-list');
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
 Route::prefix('auth')->group(function () {
     Route::get('admin', [RouteController::class, 'admin'])->name('login-form');
     Route::get('register', [RouteController::class, 'register'])->name('register-form');
     Route::post('signup', [AuthController::class, 'signup']);
     Route::post('process', [AuthController::class, 'check'])->name('processLogin');
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+});
+
+Route::middleware('auth')->prefix('admin')->group(function() {
+    Route::group(['prefix' => 'location'], function() {
+        Route::post('store', [LocationController2::class, 'store'])->name('location.store');
+        Route::get('edit/{id}', [LocationController::class, 'edit'])->name('location.edit');
+        Route::post('update/{id}', [LocationController2::class, 'update'])->name('location.update');
+        Route::get('delete/{id}', [LocationController2::class, 'destroy'])->name('location.delete');
+        Route::get('create', [LocationController::class, 'list'])->name('location.add');
+        Route::get('list', [LocationController::class, 'index'])->name('location.list');
+        Route::get('filter/{id}', [LocationController::class, 'filter']);
+        Route::get('/hide/{id}', [LocationController2::class, 'hide']);
+    });
 });
 
 Route::get('information-filled', [LocationController::class, 'filled_info']);
@@ -77,4 +89,4 @@ Route::get('/storeRoom', [RoomController::class, 'storeRoom']);
 
 Route::get('return_page', [RouteController::class, 'returnAbout']);
 
-Route::get('/hide/{id}', [LocationController2::class, 'hide']);
+

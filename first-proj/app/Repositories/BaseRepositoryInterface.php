@@ -10,4 +10,6 @@ interface BaseRepositoryInterface
     public function store($data);
 
     public function  hide($id);
+
+    public function update($data, $id);
 }

@@ -9,4 +9,6 @@ interface ILocationsService
     function store($data);
 
     function hide($id);
+
+    function update($data, $id);
 }

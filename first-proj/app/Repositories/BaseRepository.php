@@ -29,6 +29,15 @@ class BaseRepository implements BaseRepositoryInterface
         return $record;
     }
 
+    public function update($data, $id)
+    {
+        $record = $this->model->find($id);
+        $record->fill($data);
+        $record->save();
+        $record->refresh();
+        return $record;
+    }
+
     public function  hide($id)
     {
         $item = $this->model->withTrashed()->where('id', $id)->first();

@@ -28,4 +28,9 @@ class LocationsService implements ILocationsService
     {
         return $this->locationRepository->hide($id);
     }
+
+    function update($data, $id)
+    {
+        return $this->locationRepository->update($data, $id);
+    }
 }
