@@ -15,12 +15,8 @@ use Illuminate\Support\Facades\Auth;
 
 class LocationController extends Controller
 {
-
     public function index() {
-        return view('location-list', [
-            'locationFound' => Location::all(),
-            'regionList' => Region::all()
-        ]);
+        return view('location-list');
     }
 
     public function list() {

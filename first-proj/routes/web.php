@@ -7,6 +7,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\LocationController2;
+use App\Http\Livewire\LocationCard;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,7 +57,7 @@ Route::middleware('auth')->prefix('admin')->group(function() {
         Route::get('delete/{id}', [LocationController2::class, 'destroy'])->name('location.delete');
         Route::get('create', [LocationController::class, 'list'])->name('location.add');
         Route::get('list', [LocationController::class, 'index'])->name('location.list');
-        Route::get('filter/{id}', [LocationController::class, 'filter']);
+//        Route::get('filter/{id}', [LocationController::class, 'filter']);
         Route::get('/hide/{id}', [LocationController2::class, 'hide']);
     });
 });
