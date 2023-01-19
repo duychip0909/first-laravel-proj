@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Location;
+use App\Services\Interfaces\ILocationsService;
 use Livewire\Component;
 
 class LocationCard extends Component

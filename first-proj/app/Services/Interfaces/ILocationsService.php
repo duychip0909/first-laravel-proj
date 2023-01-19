@@ -11,4 +11,5 @@ interface ILocationsService
     function hide($id);
 
     function update($data, $id);
+
 }

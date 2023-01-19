@@ -17,6 +17,11 @@ class BaseRepository implements BaseRepositoryInterface
         }
     }
 
+    public function show()
+    {
+        return $this->model->all();
+    }
+
     public function destroy($id) {
         return $this->model->withTrashed()->where('id', $id)->forceDelete();
     }
@@ -38,7 +43,7 @@ class BaseRepository implements BaseRepositoryInterface
         return $record;
     }
 
-    public function  hide($id)
+    public function hide($id)
     {
         $item = $this->model->withTrashed()->where('id', $id)->first();
         if ($item->deleted_at != null)

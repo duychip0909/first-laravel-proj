@@ -33,4 +33,5 @@ class LocationsService implements ILocationsService
     {
         return $this->locationRepository->update($data, $id);
     }
+
 }

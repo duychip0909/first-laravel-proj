@@ -51,10 +51,10 @@ Route::prefix('auth')->group(function () {
 
 Route::middleware('auth')->prefix('admin')->group(function() {
     Route::group(['prefix' => 'location'], function() {
-        Route::post('store', [LocationController2::class, 'store'])->name('location.store');
+//        Route::post('store', [LocationController2::class, 'store'])->name('location.store');
         Route::get('edit/{id}', [LocationController::class, 'edit'])->name('location.edit');
         Route::post('update/{id}', [LocationController2::class, 'update'])->name('location.update');
-        Route::get('delete/{id}', [LocationController2::class, 'destroy'])->name('location.delete');
+//        Route::get('delete/{id}', [LocationController2::class, 'destroy'])->name('location.delete');
         Route::get('create', [LocationController::class, 'list'])->name('location.add');
         Route::get('list', [LocationController::class, 'index'])->name('location.list');
 //        Route::get('filter/{id}', [LocationController::class, 'filter']);
